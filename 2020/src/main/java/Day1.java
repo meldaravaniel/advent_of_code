@@ -8,7 +8,7 @@ import java.util.List;
 public class Day1 {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        URL resource = Day1.class.getClassLoader().getResource("day1.1_input.txt");
+        URL resource = Day1.class.getClassLoader().getResource("day1_input.txt");
         File file = Paths.get(resource.toURI()).toFile();
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         List<Integer> numbers = new ArrayList<>();
@@ -51,6 +51,10 @@ public class Day1 {
                 return new Day1Answer(number, mate);
             }
         }
+        return null;
+    }
+
+    public static Day1Answer calculateTripartiteAnswer(List<Integer> input) {
         return null;
     }
 }
