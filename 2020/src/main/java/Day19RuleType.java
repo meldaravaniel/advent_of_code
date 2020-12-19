@@ -1,3 +1,3 @@
 public enum Day19RuleType {
-    END
+    RULE, OR, END
 }
