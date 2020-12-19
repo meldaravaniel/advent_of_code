@@ -25,6 +25,14 @@ public class Day1 {
         System.out.println("First number is " + day1Answer.addend1 +
                 "; second is " + day1Answer.addend2 + ".  Product is "
                 + day1Answer.addend1 * day1Answer.addend2 + ".");
+
+        Day1Answer day1Answer2 = calculateTripartiteAnswer(numbers);
+        System.out.println("First number is " + day1Answer2.addend1 +
+                "; second is " + day1Answer2.addend2 +
+                "; third is " + day1Answer2.addend3 +
+                ".  Product is "
+                + day1Answer2.addend1 * day1Answer2.addend2 * day1Answer2.addend3 + ". " +
+                "Let's double check: " + (day1Answer2.addend1 + day1Answer2.addend2 + day1Answer2.addend3));
     }
 
     /**
@@ -54,7 +62,32 @@ public class Day1 {
         return null;
     }
 
+    /**
+     * Find the three numbers that add to 2020.  Using similar method
+     * as above, but a nested loop now.
+     *
+     * Complexity: N^2 ish.
+     *
+     * I tweaked it a bit because you don't have to start searching at
+     * the 0th index every time through, knowing there's only one answer.
+     *
+     * @param input
+     * @return
+     */
     public static Day1Answer calculateTripartiteAnswer(List<Integer> input) {
+        for (int i = 0; i < input.size(); i++) {
+            int currentNumber = input.get(i);
+            // This is what we need to add to with our next two numbers.
+            int remainder = 2020 - currentNumber;
+            // don't need to start at the beginning of the list every time, so this gets a little more efficient as you search...
+            for (int k = i + 1; k < input.size(); k++) {
+                int otherNumber = input.get(k);
+                int mate = remainder - otherNumber;
+                if (input.subList(k+1, input.size()).contains(mate)) {
+                    return new Day1Answer(currentNumber, otherNumber, mate);
+                }
+            }
+        }
         return null;
     }
 }
