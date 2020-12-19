@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -10,11 +12,10 @@ public class Day1Test {
 
     @Test
     public void testTheThings() {
-        Day1Answer answer = Day1.calculateAnswer(1721, 979, 366, 299, 675, 1456);
-        assertNotNull(answer.sumPair);
-        assertEquals(2, answer.sumPair.length);
-        assertEquals(answer.sumPair[0], 1721);
-        assertEquals(answer.sumPair[1], 299);
-        assertEquals(514579, answer.sumPairProduct);
+        Day1Answer answer = Day1.calculateAnswer(Arrays.asList(1721, 979, 366, 299, 675, 1456));
+        assertNotNull(answer);
+        assertEquals(answer.addend1, 1721);
+        assertEquals(answer.addend2, 299);
+        assertEquals(514579, answer.addend1 * answer.addend2);
     }
 }

@@ -1,4 +1,9 @@
 public class Day1Answer {
-    public int[] sumPair;
-    public int sumPairProduct;
+    int addend1;
+    int addend2;
+
+    public Day1Answer(int number, int mate) {
+        this.addend1 = number;
+        this.addend2 = mate;
+    }
 }
