@@ -3,4 +3,8 @@ public class Day19 {
 
         return false;
     }
+
+    public static Day19RuleNode makeNode(String rule) {
+        return null;
+    }
 }
